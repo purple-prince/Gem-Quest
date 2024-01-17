@@ -26,45 +26,27 @@ struct ContentView: View {
     @StateObject private var gameData = GameData()
     @State private var timer: AnyCancellable?
     
+    let levels = [
+        Level(name: "Level 1", color: .red, unlockCost: 10, coinsPerSecond: 10),
+        Level(name: "Level 2", color: .orange, unlockCost: 100, coinsPerSecond: 100),
+        Level(name: "Level 3", color: .yellow, unlockCost: 1_000, coinsPerSecond: 1_000),
+        Level(name: "Level 4", color: .green, unlockCost: 10_000, coinsPerSecond: 10_000),
+        Level(name: "Level 5", color: .teal, unlockCost: 100_000, coinsPerSecond: 100_000),
+        Level(name: "Level 6", color: .cyan, unlockCost: 1_000_000, coinsPerSecond: 1_000_000),
+        Level(name: "Level 7", color: .blue, unlockCost: 10_000_000, coinsPerSecond: 10_000_000),
+        Level(name: "Level 8", color: .indigo, unlockCost: 100_000_000, coinsPerSecond: 100_000_000),
+        Level(name: "Level 9", color: .purple, unlockCost: 1_000_000_000, coinsPerSecond: 1_000_000_000),
+        Level(name: "Level 10", color: .brown, unlockCost: 10_000_000_000, coinsPerSecond: 10_000_000_000)
+    ]
+    
+    
     var body: some View {
         ScrollView {
             VStack {
                 
-                Text(gameData.coins.description)
-                Text(gameData.minesUnlocked.description)
+                Text("Coins: " + gameData.coins.description)
                 
-                ZStack {
-                    Color.red
-                }
-                .frame(height: 200)
-                
-                if gameData.minesUnlocked >= 2 {
-                    ZStack {
-                        Color.green
-                    }
-                    .frame(height: 200)
-                } else {
-                    Text("unlock")
-                        .onTapGesture {
-                            if gameData.coins > 100 {//
-                                gameData.minesUnlocked += 1
-                            }
-                        }
-                }
-                
-                if gameData.minesUnlocked >= 3 {
-                    ZStack {
-                        Color.blue
-                    }
-                    .frame(height: 200)
-                } else {
-                    Text("unlock")
-                        .onTapGesture {
-                            if gameData.coins > 200 {
-                                gameData.minesUnlocked += 1
-                            }
-                        }
-                }
+
             }
         }
         .onAppear {
@@ -77,6 +59,14 @@ struct ContentView: View {
             gameData.addCoins()
         }
     }
+}
+
+struct Level: Identifiable {
+    let id: UUID = UUID()
+    let name: String
+    let color: Color
+    let unlockCost: Int
+    let coinsPerSecond: Int
 }
 
 #Preview {
