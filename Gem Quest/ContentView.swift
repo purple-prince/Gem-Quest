@@ -9,24 +9,23 @@ import SwiftUI
 import Combine
 
 class GameData: ObservableObject {
-    @Published var coins = 0
+    @Published var coins = 10
     @Published var minesUnlocked: Int = 1
 
-    func addCoins() {
-        coins += 5 * minesUnlocked
+    func addCoins(activeLevels: [Level]) {
+        for level in activeLevels {
+            coins += Int(Double(level.coinsPerSecond) * Double.random(in: 0.5..<1.5))
+        }
     }
 }
 
 
 struct ContentView: View {
-    
-    @State var money: Int = 0
-    
-    
+        
     @StateObject private var gameData = GameData()
     @State private var timer: AnyCancellable?
     
-    let levels = [
+    let allLevels = [
         Level(name: "Level 1", color: .red, unlockCost: 10, coinsPerSecond: 10),
         Level(name: "Level 2", color: .orange, unlockCost: 100, coinsPerSecond: 100),
         Level(name: "Level 3", color: .yellow, unlockCost: 1_000, coinsPerSecond: 1_000),
@@ -39,34 +38,76 @@ struct ContentView: View {
         Level(name: "Level 10", color: .brown, unlockCost: 10_000_000_000, coinsPerSecond: 10_000_000_000)
     ]
     
+    @State var activeLevels: [Level] = []
+    @State var levelsUnlocked: Int = 0
+    
+    var formattedNumber: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter.string(from: NSNumber(value: gameData.coins)) ?? ""
+    }
+    
     
     var body: some View {
-        ScrollView {
-            VStack {
-                
-                Text("Coins: " + gameData.coins.description)
-                
-
+        VStack {
+            Text("Coins: " + formattedNumber)
+            
+            ScrollView {
+                VStack {
+                    
+                    
+                    
+                    ForEach(activeLevels) { level in
+                        
+                        ZStack(alignment: .center) {
+                            level.color
+                            
+                            Text(level.name)
+                        }
+                        .frame(height: 200)
+                    }
+                    
+                    if levelsUnlocked < allLevels.count {
+                        Text("Unlock level \(levelsUnlocked + 1) for \(allLevels[levelsUnlocked].unlockCost) coins").underline().bold()
+                            .onTapGesture {
+                                if gameData.coins >= allLevels[levelsUnlocked].unlockCost {
+                                    gameData.coins -= allLevels[levelsUnlocked].unlockCost
+                                    activeLevels.append(allLevels[levelsUnlocked])
+                                    levelsUnlocked += 1
+                                }
+                            }
+                    }
+                }
+            }
+            .onAppear {
+                self.startTimer()
             }
         }
-        .onAppear {
-            self.startTimer()
-        }
+
     }
     
     func startTimer() {
         timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect().sink { _ in
-            gameData.addCoins()
+            gameData.addCoins(activeLevels: activeLevels)
         }
     }
 }
 
-struct Level: Identifiable {
+class Level: Identifiable {
+    
+    @Published var isUnlocked: Bool = false
     let id: UUID = UUID()
     let name: String
     let color: Color
     let unlockCost: Int
     let coinsPerSecond: Int
+    
+    init(name: String, color: Color, unlockCost: Int, coinsPerSecond: Int) {
+        self.name = name
+        self.color = color
+        self.unlockCost = unlockCost
+        self.coinsPerSecond = coinsPerSecond
+    }
 }
 
 #Preview {
