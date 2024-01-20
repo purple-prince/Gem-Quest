@@ -135,7 +135,7 @@ struct ContentView: View {
             .onAppear { gameData.startTimer() }
         }
         
-    }
+    }//test commit
     
     var hqView: some View {
         ZStack {
