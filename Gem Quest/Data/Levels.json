@@ -1,0 +1,26 @@
+{
+  "numLevels": 6,
+  "allLevels": [
+    {
+      "name": "Level 1",
+      "bgImage": "",
+      "unlockCost": 10,
+      "rawRes": [
+        {
+          "name": "Wood",
+          "sellValue": 1,
+          "levelYields": [
+            {
+              "1": 1
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Wood": 2
+        }
+      ]
+    }
+  ]
+}

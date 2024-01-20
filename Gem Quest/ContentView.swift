@@ -17,24 +17,25 @@ let tier1Ores: [String] = [
 class GameData: ObservableObject {
     
     let allLevels = [
-        Level(name: "Level 1", color: .red, unlockCost: 10, coinsPerSecond: 10, rawRes: ["Wood"], rawYields: [], rawRates: []),
-        Level(name: "Level 2", color: .orange, unlockCost: 100, coinsPerSecond: 100, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 3", color: .yellow, unlockCost: 1_000, coinsPerSecond: 1_000, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 4", color: .green, unlockCost: 10_000, coinsPerSecond: 10_000, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 5", color: .teal, unlockCost: 100_000, coinsPerSecond: 100_000, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 6", color: .cyan, unlockCost: 1_000_000, coinsPerSecond: 1_000_000, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 7", color: .blue, unlockCost: 10_000_000, coinsPerSecond: 10_000_000, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 8", color: .indigo, unlockCost: 100_000_000, coinsPerSecond: 100_000_000, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 9", color: .purple, unlockCost: 1_000_000_000, coinsPerSecond: 1_000_000_000, rawRes: [], rawYields: [], rawRates: []),
-        Level(name: "Level 10", color: .brown, unlockCost: 10_000_000_000, coinsPerSecond: 10_000_000_000, rawRes: [], rawYields: [], rawRates: [])
+        Level(
+            name: "Level 1",
+            color: .red,
+            unlockCost: 10,
+            coinsPerSecond: 10, 
+            rawRes: [RawResoruce(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])],
+            yieldRates: ["Wood" : 1.0]
+        ),
+        Level(name: "Level 2", color: .orange, unlockCost: 100, coinsPerSecond: 100, rawRes: [], yieldRates: [:])
     ]
+    
+    @Published var resAmounts: [String : Int] = [:]
     
     @Published var coins = 10
     @Published var minesUnlocked: Int = 1
     @Published var timer: AnyCancellable?
     @Published var activeLevels: [Level] = []
     @Published var levelsUnlocked: Int = 0
-    
+        
     let updateRate: Double = 0.5
 
     func addCoins(activeLevels: [Level]) {
@@ -43,9 +44,29 @@ class GameData: ObservableObject {
         }
     }
     
+    func addRes() {
+        for level in activeLevels {
+            for res in level.rawRes {
+                let amountToAdd = Int(level.yieldRates[res.name]!)
+                if resAmounts[res.name] != nil {
+                    resAmounts[res.name]! += amountToAdd
+                } else {
+                    resAmounts[res.name] = amountToAdd
+                }
+                
+            }
+        }
+    }
+    
+    func sellRawResource(resource: RawResoruce, amount: Int) {
+        self.coins -= resource.sellValue * amount
+        
+    }
+    
     func startTimer() {
         self.timer = Timer.publish(every: updateRate, on: .main, in: .common).autoconnect().sink { _ in
             self.addCoins(activeLevels: self.activeLevels)
+            self.addRes()
         }
     }
     
@@ -72,22 +93,33 @@ struct ContentView: View {
     }
     
     var body: some View {
-        VStack {
-            Text("Coins: " + formattedNumber)
+        
+        ZStack {
             
-            ScrollView {
+            topPanel
+            
+            main
+            
+        }
+    }
+    
+    var main: some View {
+        GeometryReader { geo in
+            ScrollView(.vertical) {
+                
                 VStack {
-                    
+                    hqView
+
                     ForEach(gameData.activeLevels) { level in
-                        
+
                         ZStack(alignment: .center) {
                             level.color
-                            
+
                             Text(level.name)
                         }
                         .frame(height: 200)
                     }
-                    
+
                     if gameData.levelsUnlocked < gameData.allLevels.count {
                         Text("Unlock level \(gameData.levelsUnlocked + 1) for \(gameData.allLevels[gameData.levelsUnlocked].unlockCost) coins")
                             .underline()
@@ -95,35 +127,51 @@ struct ContentView: View {
                             .onTapGesture { gameData.unlockLevel() }
                     }
                 }
+                .frame(width: geo.size.width)
+                .frame(minHeight: geo.size.height)
+                
+
             }
             .onAppear { gameData.startTimer() }
         }
-
+        
     }
-
+    
+    var hqView: some View {
+        ZStack {
+            Image("hqImage")
+                .resizable()
+                .blur(radius: 6)
+            
+            VStack {
+                Text("HQ")
+                    .font(.title)
+                
+                ForEach(Array(gameData.resAmounts.keys), id: \.self) { key in
+                    Text("\(key): \(gameData.resAmounts[key]!)")
+                }
+            }
+        }
+        .frame(height: 200)
+        .border(Color.red)
+        .onTapGesture {
+            
+        }
+    }
+    
+    var topPanel: some View {
+        ZStack(alignment: .topTrailing) {
+            HStack {
+                Text("Coins: " + formattedNumber)
+            }
+        }
+    }
 }
 
-class Level: Identifiable {
-    
-    @Published var isUnlocked: Bool = false
-    let id: UUID = UUID()
+struct RawResoruce: Hashable {
     let name: String
-    let color: Color
-    let unlockCost: Int
-    let coinsPerSecond: Int
-    let rawRes: [String]
-    let rawYields: [Double]
-    var rawRates: [Double]
-    
-    init(name: String, color: Color, unlockCost: Int, coinsPerSecond: Int, rawRes: [String], rawYields: [Double], rawRates: [Double]) {
-        self.name = name
-        self.color = color
-        self.unlockCost = unlockCost
-        self.coinsPerSecond = coinsPerSecond
-        self.rawRes = rawRes
-        self.rawYields = rawYields
-        self.rawRates = rawRates
-    }
+    let sellValue: Int
+    let levelYields: [Int : Double]
 }
 
 #Preview {
