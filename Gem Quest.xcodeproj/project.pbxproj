@@ -13,6 +13,8 @@
 		D81B34CE2B579F5D000F6E06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81B34CD2B579F5D000F6E06 /* Preview Assets.xcassets */; };
 		D82C64B32B5B546700329299 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C64B22B5B546700329299 /* Level.swift */; };
 		D82C64B62B5B565700329299 /* Levels.json in Resources */ = {isa = PBXBuildFile; fileRef = D82C64B52B5B565700329299 /* Levels.json */; };
+		D82C64B82B5B624400329299 /* RawResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C64B72B5B624400329299 /* RawResource.swift */; };
+		D856BBDD2B5BA91800A9A9B6 /* HQSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D856BBDC2B5BA91800A9A9B6 /* HQSheetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		D81B34CD2B579F5D000F6E06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D82C64B22B5B546700329299 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		D82C64B52B5B565700329299 /* Levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Levels.json; sourceTree = "<group>"; };
+		D82C64B72B5B624400329299 /* RawResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawResource.swift; sourceTree = "<group>"; };
+		D856BBDC2B5BA91800A9A9B6 /* HQSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 				D81B34C82B579F5C000F6E06 /* ContentView.swift */,
 				D81B34CA2B579F5D000F6E06 /* Assets.xcassets */,
 				D81B34CC2B579F5D000F6E06 /* Preview Content */,
+				D856BBDC2B5BA91800A9A9B6 /* HQSheetView.swift */,
 			);
 			path = "Gem Quest";
 			sourceTree = "<group>";
@@ -77,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				D82C64B22B5B546700329299 /* Level.swift */,
+				D82C64B72B5B624400329299 /* RawResource.swift */,
 			);
 			path = "Data Structures";
 			sourceTree = "<group>";
@@ -161,7 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D82C64B32B5B546700329299 /* Level.swift in Sources */,
+				D856BBDD2B5BA91800A9A9B6 /* HQSheetView.swift in Sources */,
 				D81B34C92B579F5C000F6E06 /* ContentView.swift in Sources */,
+				D82C64B82B5B624400329299 /* RawResource.swift in Sources */,
 				D81B34C72B579F5C000F6E06 /* Gem_QuestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,10 +16,10 @@ class Level: Identifiable {
     let color: Color
     let unlockCost: Int
     let coinsPerSecond: Int
-    let rawRes: [RawResoruce]
-    var yieldRates: [String : Double]
+    let rawRes: [RawResource]
+    var yieldRates: [RawResource : Double]
     
-    init(name: String, color: Color, unlockCost: Int, coinsPerSecond: Int, rawRes: [RawResoruce], yieldRates: [String : Double]) {
+    init(name: String, color: Color, unlockCost: Int, coinsPerSecond: Int, rawRes: [RawResource], yieldRates: [RawResource : Double]) {
         self.name = name
         self.color = color
         self.unlockCost = unlockCost

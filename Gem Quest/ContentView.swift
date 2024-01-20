@@ -22,13 +22,13 @@ class GameData: ObservableObject {
             color: .red,
             unlockCost: 10,
             coinsPerSecond: 10, 
-            rawRes: [RawResoruce(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])],
-            yieldRates: ["Wood" : 1.0]
+            rawRes: [RawResource(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])],
+            yieldRates: [RawResource.wood : 1.0]
         ),
         Level(name: "Level 2", color: .orange, unlockCost: 100, coinsPerSecond: 100, rawRes: [], yieldRates: [:])
     ]
     
-    @Published var resAmounts: [String : Int] = [:]
+    @Published var resAmounts: [RawResource : Int] = [:]
     
     @Published var coins = 10
     @Published var minesUnlocked: Int = 1
@@ -37,35 +37,28 @@ class GameData: ObservableObject {
     @Published var levelsUnlocked: Int = 0
         
     let updateRate: Double = 0.5
-
-    func addCoins(activeLevels: [Level]) {
-        for level in activeLevels {
-            coins += Int(Double(level.coinsPerSecond) * updateRate)
-        }
+    
+    func sellRes(resource: RawResource, amount: Double) {
+        var resToSell: Double = Double(resAmounts[resource]!)
+        resToSell *= amount
+        
+        resAmounts[resource]! -= Int(resToSell)
+        coins += Int(resToSell) * resource.sellValue
     }
     
     func addRes() {
         for level in activeLevels {
             for res in level.rawRes {
-                let amountToAdd = Int(level.yieldRates[res.name]!)
-                if resAmounts[res.name] != nil {
-                    resAmounts[res.name]! += amountToAdd
-                } else {
-                    resAmounts[res.name] = amountToAdd
-                }
+                let amountToAdd = Int(level.yieldRates[res]!)
                 
+                if resAmounts[res] != nil { resAmounts[res]! += amountToAdd }
+                else                          { resAmounts[res] = amountToAdd }
             }
         }
     }
     
-    func sellRawResource(resource: RawResoruce, amount: Int) {
-        self.coins -= resource.sellValue * amount
-        
-    }
-    
     func startTimer() {
         self.timer = Timer.publish(every: updateRate, on: .main, in: .common).autoconnect().sink { _ in
-            self.addCoins(activeLevels: self.activeLevels)
             self.addRes()
         }
     }
@@ -86,6 +79,8 @@ struct ContentView: View {
         
     @StateObject private var gameData = GameData()
     
+    @State var showHqSheet: Bool = false
+    
     var formattedNumber: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -96,7 +91,7 @@ struct ContentView: View {
         
         ZStack {
             
-            topPanel
+            //topPanel
             
             main
             
@@ -135,7 +130,7 @@ struct ContentView: View {
             .onAppear { gameData.startTimer() }
         }
         
-    }//test commit
+    }
     
     var hqView: some View {
         ZStack {
@@ -148,30 +143,91 @@ struct ContentView: View {
                     .font(.title)
                 
                 ForEach(Array(gameData.resAmounts.keys), id: \.self) { key in
-                    Text("\(key): \(gameData.resAmounts[key]!)")
+                    Text("\(key.name): \(gameData.resAmounts[key]!)")
                 }
             }
         }
         .frame(height: 200)
+        .onTapGesture { showHqSheet = true }
         .border(Color.red)
-        .onTapGesture {
-            
-        }
-    }
-    
-    var topPanel: some View {
-        ZStack(alignment: .topTrailing) {
-            HStack {
-                Text("Coins: " + formattedNumber)
+        
+        .sheet(isPresented: $showHqSheet) {
+            VStack {
+                ForEach(Array(gameData.resAmounts.keys), id: \.self) { resource in
+                    HStack {
+                        Text("\(resource.name): \(gameData.resAmounts[resource]!)")
+                        
+                        Spacer()
+                        
+                        Text("Sell:")
+                        
+                        Button(action: {
+                            gameData.sellRes(resource: resource, amount: 0.1)
+                        }) {
+                            Text("10%")
+                                .font(.body)
+                                .foregroundStyle(.white)
+                                .padding(8)
+                                .background(
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .foregroundStyle(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                        
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .stroke(Color(red: 0.3, green: 0.3, blue: 0.3))
+                                    }
+                                    
+                                )
+                        }
+                        
+                        Button(action: {
+                            gameData.sellRes(resource: resource, amount: 0.5)
+                        }) {
+                            Text("50%")
+                                .font(.body)
+                                .foregroundStyle(.white)
+                                .padding(8)
+                                .background(
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .foregroundStyle(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                        
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .stroke(Color(red: 0.3, green: 0.3, blue: 0.3))
+                                    }
+                                    
+                                )
+                        }
+                        
+                        Button(action: {
+                            gameData.sellRes(resource: resource, amount: 1.0)
+                        }) {
+                            Text("100%")
+                                .font(.body)
+                                .foregroundStyle(.white)
+                                .padding(8)
+                                .background(
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .foregroundStyle(Color(red: 0.1, green: 0.1, blue: 0.1))
+                                        
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .stroke(Color(red: 0.3, green: 0.3, blue: 0.3))
+                                    }
+                                    
+                                )
+                        }
+                    }
+                    .font(.title3)
+                    
+                }
             }
+            .padding()
+            .presentationDetents([.fraction(0.75)])
         }
+        
+        
     }
-}
-
-struct RawResoruce: Hashable {
-    let name: String
-    let sellValue: Int
-    let levelYields: [Int : Double]
 }
 
 #Preview {
