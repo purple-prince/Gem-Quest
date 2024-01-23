@@ -20,12 +20,11 @@ class GameData: ObservableObject {
         Level(
             name: "Level 1",
             unlockCost: 10,
-            coinsPerSecond: 10, 
             rawRes: [RawResource(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])],
             yieldRates: [RawResource.wood : 1.0],
             imageResource: ""
         ),
-        Level(name: "Level 2", unlockCost: 100, coinsPerSecond: 100, rawRes: [], yieldRates: [:], imageResource: "")
+        Level(name: "Level 2", unlockCost: 100, rawRes: [], yieldRates: [:], imageResource: "")
     ]
     
     @Published var resAmounts: [RawResource : Int] = [:]
@@ -137,6 +136,9 @@ struct ContentView: View {
             Image("hqImage")
                 .resizable()
                 .blur(radius: 6)
+                .onTapGesture {
+                    Level.loadLevelData()
+                }
             
             VStack {
                 Text("HQ")

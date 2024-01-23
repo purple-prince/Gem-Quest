@@ -3,7 +3,7 @@
   "allLevels": [
     {
       "name": "Level 1",
-      "bgImage": "",
+      "bgImageName": "",
       "unlockCost": 10,
       "rawRes": [
         {

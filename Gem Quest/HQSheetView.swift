@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-let data = [
+let mdata = [
     "Wood" : 120
 ]
 
@@ -15,9 +15,9 @@ struct HQSheetView: View {
     
     var body: some View {
         VStack {
-            ForEach(Array(data.keys), id: \.self) { resource in
+            ForEach(Array(mdata.keys), id: \.self) { resource in
                 HStack {
-                    Text("\(resource): \(data[resource]!)")
+                    Text("\(resource): \(mdata[resource]!)")
                     
                     Spacer()
                     

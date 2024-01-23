@@ -7,39 +7,61 @@
 
 import SwiftUI
 
+//    var description: String {
+//        let mirror = Mirror(reflecting: self)
+//        var description = "\(type(of: self)) properties:\n"
+//        for child in mirror.children {
+//            if let propertyName = child.label {
+//                description += "\(propertyName): \(child.value)\n"
+//            }
+//        }
+//        return description
+//    }
+
+//print(level.description)
+
 class Level: Identifiable, Codable {
     
     let name: String
     let unlockCost: Int
-    let coinsPerSecond: Int
     let rawRes: [RawResource]
     var yieldRates: [RawResource : Double]
-    let imageResource: String
+    let bgImageName: String
     
-    init(name: String, unlockCost: Int, coinsPerSecond: Int, rawRes: [RawResource], yieldRates: [RawResource : Double], imageResource: String) {
+    init(name: String, unlockCost: Int, rawRes: [RawResource], yieldRates: [RawResource : Double], imageResource: String) {
         self.name = name
         self.unlockCost = unlockCost
-        self.coinsPerSecond = coinsPerSecond
         self.rawRes = rawRes
         self.yieldRates = yieldRates
-        self.imageResource = imageResource
+        self.bgImageName = imageResource
+        
     }
     
-    static func loadLevelData() {
+    static func loadLevelData() -> Level? {
+        print("loading...")
         let decoder = JSONDecoder()
-        if let path = Bundle.main.path(forResource: "level", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            }
-            catch { print("error loading level.json") }
-            
-        } else { print("couldn't find level.json") }
+        
+        guard let path = Bundle.main.path(forResource: "levels", ofType: "json") else {
+            print("couldn't find level.json")
+            return nil
+        }
+        
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else {
+            print("couldn't load level.json")
+            return nil
+        }
         
         do {
+            let level = try decoder.decode(Level.self, from: data)
+            print("WORKED!!")
             
-            //let person = try decoder.decode(Person.self, from: jsonData)
+            return level
+            
         } catch {
-            
+            print("didnt work...")
+            return nil
         }
+        
+        
     }
 }
