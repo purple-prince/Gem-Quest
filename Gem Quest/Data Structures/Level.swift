@@ -5,26 +5,41 @@
 //  Created by Charlie Reeder on 1/19/24.
 //
 
-import Foundation
 import SwiftUI
 
-class Level: Identifiable {
+class Level: Identifiable, Codable {
     
-    @Published var isUnlocked: Bool = false
-    let id: UUID = UUID()
     let name: String
-    let color: Color
     let unlockCost: Int
     let coinsPerSecond: Int
     let rawRes: [RawResource]
     var yieldRates: [RawResource : Double]
+    let imageResource: String
     
-    init(name: String, color: Color, unlockCost: Int, coinsPerSecond: Int, rawRes: [RawResource], yieldRates: [RawResource : Double]) {
+    init(name: String, unlockCost: Int, coinsPerSecond: Int, rawRes: [RawResource], yieldRates: [RawResource : Double], imageResource: String) {
         self.name = name
-        self.color = color
         self.unlockCost = unlockCost
         self.coinsPerSecond = coinsPerSecond
         self.rawRes = rawRes
         self.yieldRates = yieldRates
+        self.imageResource = imageResource
+    }
+    
+    static func loadLevelData() {
+        let decoder = JSONDecoder()
+        if let path = Bundle.main.path(forResource: "level", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            }
+            catch { print("error loading level.json") }
+            
+        } else { print("couldn't find level.json") }
+        
+        do {
+            
+            //let person = try decoder.decode(Person.self, from: jsonData)
+        } catch {
+            
+        }
     }
 }

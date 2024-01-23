@@ -19,13 +19,13 @@ class GameData: ObservableObject {
     let allLevels = [
         Level(
             name: "Level 1",
-            color: .red,
             unlockCost: 10,
             coinsPerSecond: 10, 
             rawRes: [RawResource(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])],
-            yieldRates: [RawResource.wood : 1.0]
+            yieldRates: [RawResource.wood : 1.0],
+            imageResource: ""
         ),
-        Level(name: "Level 2", color: .orange, unlockCost: 100, coinsPerSecond: 100, rawRes: [], yieldRates: [:])
+        Level(name: "Level 2", unlockCost: 100, coinsPerSecond: 100, rawRes: [], yieldRates: [:], imageResource: "")
     ]
     
     @Published var resAmounts: [RawResource : Int] = [:]
@@ -108,7 +108,7 @@ struct ContentView: View {
                     ForEach(gameData.activeLevels) { level in
 
                         ZStack(alignment: .center) {
-                            level.color
+                            Color.blue
 
                             Text(level.name)
                         }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RawResource: Hashable {
+struct RawResource: Hashable, Codable {
     let name: String
     let sellValue: Int
     let levelYields: [Int : Double]
