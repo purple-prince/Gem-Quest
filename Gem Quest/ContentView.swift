@@ -21,7 +21,7 @@ class GameData: ObservableObject {
             name: "Level 1",
             unlockCost: 10,
             rawRes: [RawResource(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])],
-            yieldRates: [RawResource.wood : 1.0],
+            yieldRates: ["Wood" : 1.0],
             imageResource: ""
         ),
         Level(name: "Level 2", unlockCost: 100, rawRes: [], yieldRates: [:], imageResource: "")
@@ -48,7 +48,7 @@ class GameData: ObservableObject {
     func addRes() {
         for level in activeLevels {
             for res in level.rawRes {
-                let amountToAdd = Int(level.yieldRates[res]!)
+                let amountToAdd = Int(level.yieldRates[RawResource.nameOfResource(resource: res)]!)
                 
                 if resAmounts[res] != nil { resAmounts[res]! += amountToAdd }
                 else                          { resAmounts[res] = amountToAdd }
@@ -137,7 +137,11 @@ struct ContentView: View {
                 .resizable()
                 .blur(radius: 6)
                 .onTapGesture {
-                    Level.loadLevelData()
+                    let levels = AllLevels.loadLevelsData()
+                    
+                    for i in levels {
+                        print(i.description)
+                    }
                 }
             
             VStack {
