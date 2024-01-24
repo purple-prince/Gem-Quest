@@ -13,6 +13,7 @@ struct RawResource: Hashable, Codable {
     let levelYields: [Int : Double]
     
     static let wood: RawResource = RawResource(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])
+    static let stone: RawResource = RawResource(name: "Stone", sellValue: 2, levelYields: [2 : 2.0])
     
     enum CodingKeys: String, CodingKey { case name, sellValue, levelYields }
     
@@ -44,6 +45,7 @@ struct RawResource: Hashable, Codable {
     static func resourceFromName(name: String) -> RawResource {
         switch name {
             case "Wood": return .wood
+            case "Stone": return .stone
             default: return .wood
         }
     }
@@ -51,6 +53,7 @@ struct RawResource: Hashable, Codable {
     static func nameOfResource(resource: RawResource) -> String {
         switch resource {
             case .wood: return "Wood"
+            case .stone: return "Stone"
             default: return "Wood"
         }
     }

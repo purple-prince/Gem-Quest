@@ -8,28 +8,15 @@
 import SwiftUI
 import Combine
 
-let tier1Ores: [String] = [
-    "Wood", "Iron"
-]
 
 // Todo: self / capturing self in swift, swiftful thinking
 
 class GameData: ObservableObject {
     
-    let allLevels = [
-        Level(
-            name: "Level 1",
-            unlockCost: 10,
-            rawRes: [RawResource(name: "Wood", sellValue: 1, levelYields: [1 : 1.0])],
-            yieldRates: ["Wood" : 1.0],
-            imageResource: ""
-        ),
-        Level(name: "Level 2", unlockCost: 100, rawRes: [], yieldRates: [:], imageResource: "")
-    ]
-    
     @Published var resAmounts: [RawResource : Int] = [:]
+    let allLevels: [Level] = AllLevels.loadLevelsData()
     
-    @Published var coins = 10
+    @Published var coins = 110
     @Published var minesUnlocked: Int = 1
     @Published var timer: AnyCancellable?
     @Published var activeLevels: [Level] = []
@@ -47,9 +34,10 @@ class GameData: ObservableObject {
     
     func addRes() {
         for level in activeLevels {
+            print(level.name)
             for res in level.rawRes {
-                let amountToAdd = Int(level.yieldRates[RawResource.nameOfResource(resource: res)]!)
-                
+                print(res.name, "S")
+                let amountToAdd = Int(level.yieldRates[res.name]!) // here
                 if resAmounts[res] != nil { resAmounts[res]! += amountToAdd }
                 else                          { resAmounts[res] = amountToAdd }
             }
@@ -137,11 +125,7 @@ struct ContentView: View {
                 .resizable()
                 .blur(radius: 6)
                 .onTapGesture {
-                    let levels = AllLevels.loadLevelsData()
-                    
-                    for i in levels {
-                        print(i.description)
-                    }
+
                 }
             
             VStack {
