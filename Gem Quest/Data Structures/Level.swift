@@ -1,43 +1,4 @@
-//
-//  Level.swift
-//  Gem Quest
-//
-//  Created by Charlie Reeder on 1/19/24.
-//
-
 import SwiftUI
-
-
-//print(level.description)
-
-
-
-// static func loadLevelData() -> [Level]? {
-//     print("loading...")
-//     let decoder = JSONDecoder()
-//
-//     guard let path = Bundle.main.path(forResource: "levels", ofType: "json") else {
-//         print("couldn't find levels.json")
-//         return nil
-//     }
-//
-//     guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else {
-//         print("couldn't load levels.json")
-//         return nil
-//     }
-//
-//     do {
-//         let levelsContainer = try decoder.decode(LevelsContainer.self, from: data)
-//         print("WORKED!!")
-//         return levelsContainer.allLevels
-//
-//     } catch {
-//         print("didn't work: \(error)")
-//         return nil
-//     }
-// }
-
- 
 
 struct AllLevels: Codable {
     let numLevels: Int
