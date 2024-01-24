@@ -34,10 +34,8 @@ class GameData: ObservableObject {
     
     func addRes() {
         for level in activeLevels {
-            print(level.name)
             for res in level.rawRes {
-                print(res.name, "S")
-                let amountToAdd = Int(level.yieldRates[res.name]!) // here
+                let amountToAdd = Int(level.yieldRates[res.name]!)
                 if resAmounts[res] != nil { resAmounts[res]! += amountToAdd }
                 else                          { resAmounts[res] = amountToAdd }
             }

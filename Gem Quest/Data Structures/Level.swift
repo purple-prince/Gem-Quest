@@ -55,7 +55,6 @@ struct AllLevels: Codable {
         
         do {
             let levelsContainer = try decoder.decode(AllLevels.self, from: data)
-            print("WORKED!!")
             return levelsContainer.allLevels
         } catch {
             print("didn't work: \(error)")
