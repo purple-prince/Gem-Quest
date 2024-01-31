@@ -44,7 +44,7 @@ class Level: Identifiable, Codable {
         self.bgImageName = try container.decode(String.self, forKey: .bgImageName)
         
         var yieldRatesDict: [String : Double] = [:]
-        var yieldRatesArray = try container.decode([[String : Double]].self, forKey: .yieldRates)
+        let yieldRatesArray = try container.decode([[String : Double]].self, forKey: .yieldRates)
         for yieldRate in yieldRatesArray {
             if let key = yieldRate.keys.first, let value = yieldRate.values.first {
                 yieldRatesDict[key] = value

@@ -15,6 +15,8 @@
 		D82C64B62B5B565700329299 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = D82C64B52B5B565700329299 /* levels.json */; };
 		D82C64B82B5B624400329299 /* RawResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C64B72B5B624400329299 /* RawResource.swift */; };
 		D856BBDD2B5BA91800A9A9B6 /* HQSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D856BBDC2B5BA91800A9A9B6 /* HQSheetView.swift */; };
+		D8DB892C2B6A3F6800060681 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB892B2B6A3F6800060681 /* GameData.swift */; };
+		D8DB89302B6A46F400060681 /* HQSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB892F2B6A46F400060681 /* HQSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		D82C64B52B5B565700329299 /* levels.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
 		D82C64B72B5B624400329299 /* RawResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawResource.swift; sourceTree = "<group>"; };
 		D856BBDC2B5BA91800A9A9B6 /* HQSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQSheetView.swift; sourceTree = "<group>"; };
+		D8DB892B2B6A3F6800060681 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		D8DB892F2B6A46F400060681 /* HQSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		D81B34C52B579F5C000F6E06 /* Gem Quest */ = {
 			isa = PBXGroup;
 			children = (
+				D8DB892D2B6A46E000060681 /* Buildings */,
 				D82C64B42B5B563B00329299 /* Data */,
 				D82C64B12B5B545C00329299 /* Data Structures */,
 				D81B34C62B579F5C000F6E06 /* Gem_QuestApp.swift */,
@@ -66,6 +71,7 @@
 				D81B34CA2B579F5D000F6E06 /* Assets.xcassets */,
 				D81B34CC2B579F5D000F6E06 /* Preview Content */,
 				D856BBDC2B5BA91800A9A9B6 /* HQSheetView.swift */,
+				D8DB892B2B6A3F6800060681 /* GameData.swift */,
 			);
 			path = "Gem Quest";
 			sourceTree = "<group>";
@@ -93,6 +99,22 @@
 				D82C64B52B5B565700329299 /* levels.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		D8DB892D2B6A46E000060681 /* Buildings */ = {
+			isa = PBXGroup;
+			children = (
+				D8DB892E2B6A46E900060681 /* HQ */,
+			);
+			path = Buildings;
+			sourceTree = "<group>";
+		};
+		D8DB892E2B6A46E900060681 /* HQ */ = {
+			isa = PBXGroup;
+			children = (
+				D8DB892F2B6A46F400060681 /* HQSheet.swift */,
+			);
+			path = HQ;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,10 +189,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D82C64B32B5B546700329299 /* Level.swift in Sources */,
+				D8DB892C2B6A3F6800060681 /* GameData.swift in Sources */,
 				D856BBDD2B5BA91800A9A9B6 /* HQSheetView.swift in Sources */,
 				D81B34C92B579F5C000F6E06 /* ContentView.swift in Sources */,
 				D82C64B82B5B624400329299 /* RawResource.swift in Sources */,
 				D81B34C72B579F5C000F6E06 /* Gem_QuestApp.swift in Sources */,
+				D8DB89302B6A46F400060681 /* HQSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
