@@ -13,7 +13,7 @@ struct ContentView: View {
     @StateObject private var gameData = GameData()
     
     @State var showHqSheet: Bool = false
-    @State var showMarketSheet: Bool = true//false
+    @State var showMarketSheet: Bool = false
     
     var formattedNumber: String {
         let formatter = NumberFormatter()
