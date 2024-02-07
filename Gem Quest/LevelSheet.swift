@@ -47,13 +47,22 @@ struct LevelSheet: View {
                 Text(gameData.mineRateMultipliers.description)
                 List {
                     HStack {
-//                        Text("Mine Rate: \(gameData.mineRateMultipliers[level.name]?.description ?? "S")")
-                        Text("S")
+                        Text("Mine Rate: \(gameData.mineRateMultipliers[level.name]?.description ?? "S")")
                         
                         Spacer()
                         
                         ZStack {
-                            
+                            Text("$2.83k")
+                                .font(.callout)
+                                .foregroundStyle(Color.yellow)
+                            .padding(6)
+                            .padding(.horizontal, 4)
+                                .background(
+                                    ZStack {
+                                        Capsule()
+                                            .stroke(Color.yellow, lineWidth: 2)
+                                    }
+                                )
                         }
                     }
                 }
