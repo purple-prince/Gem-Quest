@@ -21,6 +21,12 @@ class GameData: ObservableObject {
     @Published var activeLevels: [Level] = []
     @Published var levelsUnlocked: Int = 0
     
+    var allResourcesValue: Int {
+        var total = 0
+        for res in Array(resAmounts.keys) { total += res.sellValue * resAmounts[res]! }
+        return total
+    }
+    
     // TODO: optimize for performance
     var netWorth: Int {
         var total = coins

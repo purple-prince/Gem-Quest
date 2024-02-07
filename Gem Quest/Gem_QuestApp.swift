@@ -12,6 +12,7 @@ struct Gem_QuestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(GameData())
         }
     }
 }

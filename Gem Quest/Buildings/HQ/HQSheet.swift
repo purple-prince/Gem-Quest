@@ -22,7 +22,7 @@ struct HQSheet: View {
             Group {
                 if currentTab == .overview {
                     VStack {
-                        Text("Resource value: $\(gameData.netWorth)")
+                        Text("Resource value: $\(gameData.allResourcesValue)")
                     }
                 } else if currentTab == .resources {
                     VStack {

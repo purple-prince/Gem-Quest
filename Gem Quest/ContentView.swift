@@ -10,7 +10,7 @@ import Combine
 
 struct ContentView: View {
         
-    @StateObject private var gameData = GameData()
+    @EnvironmentObject var gameData: GameData
     
     @State var showHqSheet: Bool = false
     @State var showMarketSheet: Bool = false
@@ -27,7 +27,7 @@ extension ContentView {
         
         ZStack {
             
-            //topPanel
+            moneyOverlay
             
             main
             
@@ -36,6 +36,22 @@ extension ContentView {
 }
 
 extension ContentView {
+    
+    var moneyOverlay: some View {
+        VStack {
+            HStack {
+                
+                Spacer()
+                
+                Text("$" + gameData.coins.description)
+                    .font(.title2)
+                
+            }
+            
+            Spacer()
+        }
+        .padding(.horizontal)
+    }
     
     var main: some View {
         GeometryReader { geo in
@@ -55,6 +71,7 @@ extension ContentView {
                             Text(level.name)
                         }
                         .frame(height: 200)
+                        
                     }
 
                     if gameData.levelsUnlocked < gameData.allLevels.count {
@@ -159,9 +176,9 @@ extension ContentView {
     }
     var hqView: some View {
         ZStack {
-            Image("hqImage")
+            Image("hqasset")
                 .resizable()
-                .blur(radius: 6)
+                //.blur(radius: 6)//
                 .onTapGesture {
 
                 }
@@ -169,10 +186,6 @@ extension ContentView {
             VStack {
                 Text("HQ")
                     .font(.title)
-                
-                ForEach(Array(gameData.resAmounts.keys), id: \.self) { key in
-                    Text("\(key.name): \(gameData.resAmounts[key]!)")
-                }
             }
         }
         .frame(height: 200)
@@ -182,4 +195,5 @@ extension ContentView {
 
 #Preview {
     ContentView()
+        .environmentObject(GameData())
 }
