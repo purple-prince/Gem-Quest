@@ -65,11 +65,7 @@ extension ContentView {
 
                     ForEach(gameData.activeLevels) { level in
 
-                        ZStack(alignment: .center) {
-                            Color.blue
-
-                            Text(level.name)
-                        }
+                        LevelView(level: level)
                         .frame(height: 200)
                         
                     }

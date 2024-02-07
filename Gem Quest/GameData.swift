@@ -13,6 +13,7 @@ import Combine
 class GameData: ObservableObject {
     
     @Published var resAmounts: [RawResource : Int] = [:]
+    @Published var mineRateMultipliers: [String : Double] = [:]
     let allLevels: [Level] = AllLevels.loadLevelsData()
     
     @Published var coins = 46
@@ -50,8 +51,11 @@ class GameData: ObservableObject {
         for level in activeLevels {
             for res in level.rawRes {
                 let amountToAdd = Int(level.yieldRates[res.name]!)
-                if resAmounts[res] != nil { resAmounts[res]! += amountToAdd }
-                else                          { resAmounts[res] = amountToAdd }
+                if resAmounts[res] != nil {
+                    resAmounts[res]! += amountToAdd
+                } else {
+                    resAmounts[res] = Int(Double(amountToAdd) * mineRateMultipliers[level.name]!)
+                }
             }
         }
     }
@@ -67,6 +71,7 @@ class GameData: ObservableObject {
         
         if coins >= nextLevel.unlockCost { // if we can afford the next level
             coins -= nextLevel.unlockCost  // pay the unlock cost
+            mineRateMultipliers[nextLevel.name] = 1.0
             activeLevels.append(nextLevel) // set the level to active
             levelsUnlocked += 1            // increment the number of levels unlocked
         }

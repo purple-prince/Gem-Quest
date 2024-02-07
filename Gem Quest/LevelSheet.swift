@@ -9,22 +9,9 @@ import SwiftUI
 
 struct LevelSheet: View {
     
-    @State var showSheet = true
-    
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-//            .sheet(isPresented: $showSheet) {
-//                NewView()
-//            }
-    }
-}
-
-struct NewView: View {
-    
     @EnvironmentObject var gameData: GameData
     
-    @State var tab: MenuTab = .resources
-    //let level: Level = Level(name: "Wood", unlockCost: 10, rawRes: [RawResource.wood], yieldRates: ["Wood" : 1.0], imageResource: "")
+    @State var tab: MenuTab = .upgrades//.resources
     let level: Level
     
     
@@ -49,14 +36,27 @@ struct NewView: View {
                         HStack {
                             Text(res.name)
                             
-                            Spacer()
+                            Spacer()//
                             
                             Text(gameData.resAmounts[res]?.description ?? "0")
                         }
                     }
                 }
             } else if tab == .upgrades {
-                
+                Text(level.name)
+                Text(gameData.mineRateMultipliers.description)
+                List {
+                    HStack {
+//                        Text("Mine Rate: \(gameData.mineRateMultipliers[level.name]?.description ?? "S")")
+                        Text("S")
+                        
+                        Spacer()
+                        
+                        ZStack {
+                            
+                        }
+                    }
+                }
             }
         }
         .padding()
@@ -64,6 +64,6 @@ struct NewView: View {
 }
 
 #Preview {
-    LevelSheet()
+    LevelSheet(level: Level(name: "Level 1", unlockCost: 10, rawRes: [RawResource.wood], yieldRates: ["Wood" : 1.0], imageResource: ""))
         .environmentObject(GameData())
 }

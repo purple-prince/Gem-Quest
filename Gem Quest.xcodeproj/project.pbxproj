@@ -18,6 +18,7 @@
 		D8DB892C2B6A3F6800060681 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB892B2B6A3F6800060681 /* GameData.swift */; };
 		D8DB89302B6A46F400060681 /* HQSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB892F2B6A46F400060681 /* HQSheet.swift */; };
 		D8DC75052B736EDB003A6948 /* LevelSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC75042B736EDB003A6948 /* LevelSheet.swift */; };
+		D8DC75072B7373AF003A6948 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DC75062B7373AF003A6948 /* LevelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		D8DB892B2B6A3F6800060681 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		D8DB892F2B6A46F400060681 /* HQSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HQSheet.swift; sourceTree = "<group>"; };
 		D8DC75042B736EDB003A6948 /* LevelSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSheet.swift; sourceTree = "<group>"; };
+		D8DC75062B7373AF003A6948 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				D856BBDC2B5BA91800A9A9B6 /* HQSheetView.swift */,
 				D8DB892B2B6A3F6800060681 /* GameData.swift */,
 				D8DC75042B736EDB003A6948 /* LevelSheet.swift */,
+				D8DC75062B7373AF003A6948 /* LevelView.swift */,
 			);
 			path = "Gem Quest";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				D8DB892C2B6A3F6800060681 /* GameData.swift in Sources */,
 				D856BBDD2B5BA91800A9A9B6 /* HQSheetView.swift in Sources */,
 				D81B34C92B579F5C000F6E06 /* ContentView.swift in Sources */,
+				D8DC75072B7373AF003A6948 /* LevelView.swift in Sources */,
 				D8DC75052B736EDB003A6948 /* LevelSheet.swift in Sources */,
 				D82C64B82B5B624400329299 /* RawResource.swift in Sources */,
 				D81B34C72B579F5C000F6E06 /* Gem_QuestApp.swift in Sources */,
