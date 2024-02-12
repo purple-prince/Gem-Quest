@@ -16,7 +16,7 @@ class GameData: ObservableObject {
     @Published var mineRateMultipliers: [String : Double] = [:]
     let allLevels: [Level] = AllLevels.loadLevelsData()
     
-    @Published var coins = 46
+    @Published var coins = 180
     @Published var minesUnlocked: Int = 1
     @Published var timer: AnyCancellable?
     @Published var activeLevels: [Level] = []

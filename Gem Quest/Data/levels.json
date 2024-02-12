@@ -5,7 +5,7 @@
     {
       "name": "Level 1",
       "bgImageName": "",
-      "unlockCost": 10,
+      "unlockCost": 100,
       "rawRes": [
         {
           "name": "Wood",
@@ -27,7 +27,7 @@
     {
       "name": "Level 2",
       "bgImageName": "",
-      "unlockCost": 100,
+      "unlockCost": 200,
       "rawRes": [
         {
           "name": "Stone",
@@ -45,5 +45,829 @@
         }
       ]
     },
+    
+    {
+      "name": "Level 3",
+      "bgImageName": "",
+      "unlockCost": 500,
+      "rawRes": [
+        {
+          "name": "Iron",
+          "sellValue": 3,
+          "levelYields": [
+            {
+              "3": 3
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Iron": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 4",
+      "bgImageName": "",
+      "unlockCost": 1250,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 5",
+      "bgImageName": "",
+      "unlockCost": 5000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 6",
+      "bgImageName": "",
+      "unlockCost": 9000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 7",
+      "bgImageName": "",
+      "unlockCost": 15000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 8",
+      "bgImageName": "",
+      "unlockCost": 25000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 9",
+      "bgImageName": "",
+      "unlockCost": 40000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 10",
+      "bgImageName": "",
+      "unlockCost": 75000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 11",
+      "bgImageName": "",
+      "unlockCost": 150000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 12",
+      "bgImageName": "",
+      "unlockCost": 250000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 13",
+      "bgImageName": "",
+      "unlockCost": 400000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 14",
+      "bgImageName": "",
+      "unlockCost": 800000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 15",
+      "bgImageName": "",
+      "unlockCost": 1500000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 16",
+      "bgImageName": "",
+      "unlockCost": 3000000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 17",
+      "bgImageName": "",
+      "unlockCost": 6000000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 18",
+      "bgImageName": "",
+      "unlockCost": 12000000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },
+    
+    {
+      "name": "Level 19",
+      "bgImageName": "",
+      "unlockCost": 25000000,
+      "rawRes": [
+        {
+          "name": "Stone",
+          "sellValue": 2,
+          "levelYields": [
+            {
+              "2": 2
+            }
+          ]
+        }
+      ],
+      "yieldRates": [
+        {
+          "Stone": 1
+        }
+      ]
+    },    {
+        "name": "Level 20",
+        "bgImageName": "",
+        "unlockCost": 50000000,
+        "rawRes": [
+          {
+            "name": "Stone",
+            "sellValue": 2,
+            "levelYields": [
+              {
+                "2": 2
+              }
+            ]
+          }
+        ],
+        "yieldRates": [
+          {
+            "Stone": 1
+          }
+        ]
+      },
+      
+      {
+        "name": "Level 21",
+        "bgImageName": "",
+        "unlockCost": 100000000,
+        "rawRes": [
+          {
+            "name": "Stone",
+            "sellValue": 2,
+            "levelYields": [
+              {
+                "2": 2
+              }
+            ]
+          }
+        ],
+        "yieldRates": [
+          {
+            "Stone": 1
+          }
+        ]
+      },
+      
+      {
+        "name": "Level 22",
+        "bgImageName": "",
+        "unlockCost": 200000000,
+        "rawRes": [
+          {
+            "name": "Stone",
+            "sellValue": 2,
+            "levelYields": [
+              {
+                "2": 2
+              }
+            ]
+          }
+        ],
+        "yieldRates": [
+          {
+            "Stone": 1
+          }
+        ]
+      },
+      
+      {
+        "name": "Level 23",
+        "bgImageName": "",
+        "unlockCost": 400000000,
+        "rawRes": [
+          {
+            "name": "Stone",
+            "sellValue": 2,
+            "levelYields": [
+              {
+                "2": 2
+              }
+            ]
+          }
+        ],
+        "yieldRates": [
+          {
+            "Stone": 1
+          }
+        ]
+      },    {
+          "name": "Level 24",
+          "bgImageName": "",
+          "unlockCost": 800000000,
+          "rawRes": [
+            {
+              "name": "Stone",
+              "sellValue": 2,
+              "levelYields": [
+                {
+                  "2": 2
+                }
+              ]
+            }
+          ],
+          "yieldRates": [
+            {
+              "Stone": 1
+            }
+          ]
+        },
+        
+        {
+          "name": "Level 25",
+          "bgImageName": "",
+          "unlockCost": 1600000000,
+          "rawRes": [
+            {
+              "name": "Stone",
+              "sellValue": 2,
+              "levelYields": [
+                {
+                  "2": 2
+                }
+              ]
+            }
+          ],
+          "yieldRates": [
+            {
+              "Stone": 1
+            }
+          ]
+        },
+        
+        {
+          "name": "Level 26",
+          "bgImageName": "",
+          "unlockCost": 3200000000,
+          "rawRes": [
+            {
+              "name": "Stone",
+              "sellValue": 2,
+              "levelYields": [
+                {
+                  "2": 2
+                }
+              ]
+            }
+          ],
+          "yieldRates": [
+            {
+              "Stone": 1
+            }
+          ]
+        },
+        
+        {
+          "name": "Level 27",
+          "bgImageName": "",
+          "unlockCost": 6400000000,
+          "rawRes": [
+            {
+              "name": "Stone",
+              "sellValue": 2,
+              "levelYields": [
+                {
+                  "2": 2
+                }
+              ]
+            }
+          ],
+          "yieldRates": [
+            {
+              "Stone": 1
+            }
+          ]
+        },    {
+            "name": "Level 28",
+            "bgImageName": "",
+            "unlockCost": 12500000000,
+            "rawRes": [
+              {
+                "name": "Stone",
+                "sellValue": 2,
+                "levelYields": [
+                  {
+                    "2": 2
+                  }
+                ]
+              }
+            ],
+            "yieldRates": [
+              {
+                "Stone": 1
+              }
+            ]
+          },
+          
+          {
+            "name": "Level 29",
+            "bgImageName": "",
+            "unlockCost": 25000000000,
+            "rawRes": [
+              {
+                "name": "Stone",
+                "sellValue": 2,
+                "levelYields": [
+                  {
+                    "2": 2
+                  }
+                ]
+              }
+            ],
+            "yieldRates": [
+              {
+                "Stone": 1
+              }
+            ]
+          },
+          
+          {
+            "name": "Level 30",
+            "bgImageName": "",
+            "unlockCost": 50000000000,
+            "rawRes": [
+              {
+                "name": "Stone",
+                "sellValue": 2,
+                "levelYields": [
+                  {
+                    "2": 2
+                  }
+                ]
+              }
+            ],
+            "yieldRates": [
+              {
+                "Stone": 1
+              }
+            ]
+          },
+          
+          {
+            "name": "Level 31",
+            "bgImageName": "",
+            "unlockCost": 100000000000,
+            "rawRes": [
+              {
+                "name": "Stone",
+                "sellValue": 2,
+                "levelYields": [
+                  {
+                    "2": 2
+                  }
+                ]
+              }
+            ],
+            "yieldRates": [
+              {
+                "Stone": 1
+              }
+            ]
+          },    {
+              "name": "Level 32",
+              "bgImageName": "",
+              "unlockCost": 250000000000,
+              "rawRes": [
+                {
+                  "name": "Stone",
+                  "sellValue": 2,
+                  "levelYields": [
+                    {
+                      "2": 2
+                    }
+                  ]
+                }
+              ],
+              "yieldRates": [
+                {
+                  "Stone": 1
+                }
+              ]
+            },
+            
+            {
+              "name": "Level 33",
+              "bgImageName": "",
+              "unlockCost": 600000000000,
+              "rawRes": [
+                {
+                  "name": "Stone",
+                  "sellValue": 2,
+                  "levelYields": [
+                    {
+                      "2": 2
+                    }
+                  ]
+                }
+              ],
+              "yieldRates": [
+                {
+                  "Stone": 1
+                }
+              ]
+            },
+            
+            {
+              "name": "Level 34",
+              "bgImageName": "",
+              "unlockCost": 1500000000000,
+              "rawRes": [
+                {
+                  "name": "Stone",
+                  "sellValue": 2,
+                  "levelYields": [
+                    {
+                      "2": 2
+                    }
+                  ]
+                }
+              ],
+              "yieldRates": [
+                {
+                  "Stone": 1
+                }
+              ]
+            },
+            
+            {
+              "name": "Level 35",
+              "bgImageName": "",
+              "unlockCost": 4000000000000,
+              "rawRes": [
+                {
+                  "name": "Stone",
+                  "sellValue": 2,
+                  "levelYields": [
+                    {
+                      "2": 2
+                    }
+                  ]
+                }
+              ],
+              "yieldRates": [
+                {
+                  "Stone": 1
+                }
+              ]
+            },    {
+                "name": "Level 36",
+                "bgImageName": "",
+                "unlockCost": 10000000000000,
+                "rawRes": [
+                  {
+                    "name": "Stone",
+                    "sellValue": 2,
+                    "levelYields": [
+                      {
+                        "2": 2
+                      }
+                    ]
+                  }
+                ],
+                "yieldRates": [
+                  {
+                    "Stone": 1
+                  }
+                ]
+              },
+              
+              {
+                "name": "Level 37",
+                "bgImageName": "",
+                "unlockCost": 25000000000000,
+                "rawRes": [
+                  {
+                    "name": "Stone",
+                    "sellValue": 2,
+                    "levelYields": [
+                      {
+                        "2": 2
+                      }
+                    ]
+                  }
+                ],
+                "yieldRates": [
+                  {
+                    "Stone": 1
+                  }
+                ]
+              },
+              
+              {
+                "name": "Level 38",
+                "bgImageName": "",
+                "unlockCost": 62000000000000,
+                "rawRes": [
+                  {
+                    "name": "Stone",
+                    "sellValue": 2,
+                    "levelYields": [
+                      {
+                        "2": 2
+                      }
+                    ]
+                  }
+                ],
+                "yieldRates": [
+                  {
+                    "Stone": 1
+                  }
+                ]
+              },
+              
+              {
+                "name": "Level 39",
+                "bgImageName": "",
+                "unlockCost": 160000000000000,
+                "rawRes": [
+                  {
+                    "name": "Stone",
+                    "sellValue": 2,
+                    "levelYields": [
+                      {
+                        "2": 2
+                      }
+                    ]
+                  }
+                ],
+                "yieldRates": [
+                  {
+                    "Stone": 1
+                  }
+                ]
+              },    {
+                  "name": "Level 40",
+                  "bgImageName": "",
+                  "unlockCost": 400000000000000,
+                  "rawRes": [
+                    {
+                      "name": "Stone",
+                      "sellValue": 2,
+                      "levelYields": [
+                        {
+                          "2": 2
+                        }
+                      ]
+                    }
+                  ],
+                  "yieldRates": [
+                    {
+                      "Stone": 1
+                    }
+                  ]
+                }
   ]
 }
