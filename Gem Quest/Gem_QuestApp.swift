@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct Gem_QuestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(GameData())
+                .modelContainer(for: GameData.self)
+                //.environmentObject(GameData())
+            
         }
     }
 }

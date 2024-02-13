@@ -7,20 +7,32 @@
 
 import Foundation
 import Combine
+import SwiftData
 
 // Todo: self / capturing self in swift, swiftful thinking
 
-class GameData: ObservableObject {
+@Model
+class GameData {
     
-    @Published var resAmounts: [RawResource : Int] = [:]
-    @Published var mineRateMultipliers: [String : Double] = [:]
+    init(resAmounts: [RawResource : Int], mineRateMultipliers: [String : Double], coins: Int = 180, minesUnlocked: Int, timer: AnyCancellable? = nil, activeLevels: [Level], levelsUnlocked: Int) {
+        self.resAmounts = resAmounts
+        self.mineRateMultipliers = mineRateMultipliers
+        self.coins = coins
+        self.minesUnlocked = minesUnlocked
+        self.timer = timer
+        self.activeLevels = activeLevels
+        self.levelsUnlocked = levelsUnlocked
+    }
+    
+    var resAmounts: [RawResource : Int] = [:]
+    var mineRateMultipliers: [String : Double] = [:]
     let allLevels: [Level] = AllLevels.loadLevelsData()
     
-    @Published var coins = 180
-    @Published var minesUnlocked: Int = 1
-    @Published var timer: AnyCancellable?
-    @Published var activeLevels: [Level] = []
-    @Published var levelsUnlocked: Int = 0
+    var coins = 180
+    var minesUnlocked: Int = 1
+    var timer: AnyCancellable?
+    var activeLevels: [Level] = []
+    var levelsUnlocked: Int = 0
     
     var allResourcesValue: Int {
         var total = 0

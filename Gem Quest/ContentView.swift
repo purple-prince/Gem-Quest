@@ -8,6 +8,8 @@
 import SwiftUI
 import Combine
 
+// MARK: SWIFT DATA REFERERNCE: https://www.youtube.com/watch?v=krRkm8w22A8
+
 struct ContentView: View {
         
     @EnvironmentObject var gameData: GameData
