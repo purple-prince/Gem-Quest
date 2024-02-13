@@ -7,12 +7,15 @@
 
 import SwiftUI
 import Combine
+import SwiftData
 
 // MARK: SWIFT DATA REFERERNCE: https://www.youtube.com/watch?v=krRkm8w22A8
 
 struct ContentView: View {
         
-    @EnvironmentObject var gameData: GameData
+    @Environment(\.modelContext) var context
+    
+    @Query var gameData: GameData
     
     @State var showHqSheet: Bool = false
     @State var showMarketSheet: Bool = false

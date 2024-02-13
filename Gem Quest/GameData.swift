@@ -14,14 +14,13 @@ import SwiftData
 @Model
 class GameData {
     
-    init(resAmounts: [RawResource : Int], mineRateMultipliers: [String : Double], coins: Int = 180, minesUnlocked: Int, timer: AnyCancellable? = nil, activeLevels: [Level], levelsUnlocked: Int) {
-        self.resAmounts = resAmounts
-        self.mineRateMultipliers = mineRateMultipliers
-        self.coins = coins
-        self.minesUnlocked = minesUnlocked
-        self.timer = timer
-        self.activeLevels = activeLevels
-        self.levelsUnlocked = levelsUnlocked
+    init() {
+        self.resAmounts = [:]
+        self.mineRateMultipliers = [:]
+        self.coins = 180
+        self.timer = nil
+        self.activeLevels = []
+        self.levelsUnlocked = 0
     }
     
     var resAmounts: [RawResource : Int] = [:]
@@ -29,7 +28,6 @@ class GameData {
     let allLevels: [Level] = AllLevels.loadLevelsData()
     
     var coins = 180
-    var minesUnlocked: Int = 1
     var timer: AnyCancellable?
     var activeLevels: [Level] = []
     var levelsUnlocked: Int = 0
