@@ -12,7 +12,7 @@ import SwiftData
 // Todo: self / capturing self in swift, swiftful thinking
 
 @Model
-class GameData {
+class GameData: ObservableObject {
     
     init() {
         self.resAmounts = [:]

@@ -1,15 +1,9 @@
-//
-//  ContentView.swift
-//  Gem Quest
-//
-//  Created by Charlie Reeder on 1/16/24.
-//
-
 import SwiftUI
 import Combine
 import SwiftData
 
 // MARK: SWIFT DATA REFERERNCE: https://www.youtube.com/watch?v=krRkm8w22A8
+// @transient macro makes data not persist (need a default value)
 
 struct ContentView: View {
         
